@@ -4,9 +4,10 @@ import { motion } from "motion/react";
 
 interface SplashViewProps {
   onStart: () => void;
+  onPreviewCats: () => void;
 }
 
-export default function SplashView({ onStart }: SplashViewProps) {
+export default function SplashView({ onStart, onPreviewCats }: SplashViewProps) {
   return (
     <div className="flex-1 flex flex-col justify-between px-6 py-6 bg-white overflow-y-auto h-full">
       {/* Tom's Guide Header */}
@@ -85,6 +86,13 @@ export default function SplashView({ onStart }: SplashViewProps) {
           className="w-full py-4 bg-[#004ec4] hover:bg-blue-700 text-white font-extrabold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer text-center text-sm tracking-wide"
         >
           Let's get started
+        </button>
+
+        <button
+          onClick={onPreviewCats}
+          className="w-full py-4 bg-[#E7F0FF] hover:bg-[#d8e7ff] text-[#1F69FF] font-extrabold rounded-2xl shadow-md transition-all duration-200 cursor-pointer text-center text-sm tracking-wide border border-blue-200 flex items-center justify-center gap-2"
+        >
+          <span>🧪 Preview Category Results</span>
         </button>
 
         <button

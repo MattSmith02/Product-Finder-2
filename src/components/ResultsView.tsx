@@ -30,6 +30,8 @@ export default function ResultsView({ answers, onRestart }: ResultsViewProps) {
   // Fetch recommendations from API
   useEffect(() => {
     let active = true;
+    setLoading(true);
+    setPhaseIndex(0);
 
     async function fetchRecommendations() {
       try {

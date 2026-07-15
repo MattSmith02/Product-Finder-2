@@ -8,6 +8,7 @@ import SplashView from "./components/SplashView";
 import BudgetQuestion from "./components/BudgetQuestion";
 import GenericGridQuestion from "./components/GenericGridQuestion";
 import ResultsView from "./components/ResultsView";
+import CategoryPreviewScreen from "./components/CategoryPreviewScreen";
 
 const INITIAL_ANSWERS: TechAnswers = {
   shoppingFor: "",
@@ -19,7 +20,7 @@ const INITIAL_ANSWERS: TechAnswers = {
 };
 
 export default function App() {
-  const [view, setView] = useState<"splash" | "survey" | "results">("splash");
+  const [view, setView] = useState<"splash" | "survey" | "results" | "preview-categories">("splash");
   const [currentStep, setCurrentStep] = useState<number>(1);
   const [answers, setAnswers] = useState<TechAnswers>(INITIAL_ANSWERS);
 
@@ -98,9 +99,15 @@ export default function App() {
             transition={{ duration: 0.28, ease: "easeInOut" }}
             className="flex-1 flex flex-col overflow-hidden h-full"
           >
-            {view === "splash" && <SplashView onStart={() => setView("survey")} />}
+            {view === "splash" && (
+              <SplashView 
+                onStart={() => setView("survey")} 
+                onPreviewCats={() => setView("preview-categories")} 
+              />
+            )}
             {view === "survey" && renderSurveyQuestion()}
             {view === "results" && <ResultsView answers={answers} onRestart={handleRestart} />}
+            {view === "preview-categories" && <CategoryPreviewScreen onBack={handleRestart} />}
           </motion.div>
         </AnimatePresence>
       </div>
