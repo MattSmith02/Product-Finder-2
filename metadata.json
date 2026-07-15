@@ -1,0 +1,6 @@
+{
+  "name": "Tom's Guide Product Finder",
+  "description": "Find your perfect tech with Tom's Guide Product Finder — an interactive, personalized diagnostic wizard powered by Gemini AI reviews.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
