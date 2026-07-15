@@ -14,15 +14,15 @@ interface GenericGridQuestionProps {
 }
 
 const BRAND_PRESETS = [
-  { value: "Apple", label: "Apple", style: "font-sans font-bold text-gray-900 text-sm tracking-tight" },
-  { value: "Samsung", label: "SAMSUNG", style: "font-sans font-black text-blue-700 tracking-wider text-xs" },
-  { value: "Sony", label: "SONY", style: "font-serif font-black tracking-widest text-xs text-gray-900" },
-  { value: "ASUS", label: "ASUS", style: "font-sans italic font-black text-[#004ec4] tracking-widest text-xs" },
-  { value: "Dell", label: "DELL", style: "font-sans font-bold border-2 border-sky-600 rounded-full w-10 h-10 flex items-center justify-center text-sky-600 text-[10px] tracking-tight mx-auto" },
-  { value: "Lenovo", label: "Lenovo", style: "font-sans font-black bg-red-600 text-white px-2 py-0.5 text-[10px] tracking-tight" },
-  { value: "LG", label: "LG", style: "font-sans font-bold text-pink-600 text-xs tracking-tight" },
-  { value: "Google", label: "Google", style: "font-sans font-black bg-gradient-to-r from-blue-500 via-red-500 to-yellow-500 bg-clip-text text-transparent text-sm" },
-  { value: "No preference", label: "No preference", style: "font-sans font-medium text-gray-400 text-xs" }
+  { value: "Apple", label: "Apple", style: "font-sans font-normal text-gray-900 text-sm tracking-tight" },
+  { value: "Samsung", label: "SAMSUNG", style: "font-sans font-normal text-blue-700 tracking-wider text-xs" },
+  { value: "Sony", label: "SONY", style: "font-serif font-normal tracking-widest text-xs text-gray-900" },
+  { value: "ASUS", label: "ASUS", style: "font-sans italic font-normal text-[#004ec4] tracking-widest text-xs" },
+  { value: "Dell", label: "DELL", style: "font-sans font-normal border-2 border-sky-600 rounded-full w-10 h-10 flex items-center justify-center text-sky-600 text-[10px] tracking-tight mx-auto" },
+  { value: "Lenovo", label: "Lenovo", style: "font-sans font-normal bg-red-600 text-white px-2 py-0.5 text-[10px] tracking-tight" },
+  { value: "LG", label: "LG", style: "font-sans font-normal text-pink-600 text-xs tracking-tight" },
+  { value: "Google", label: "Google", style: "font-sans font-normal bg-gradient-to-r from-blue-500 via-red-500 to-yellow-500 bg-clip-text text-transparent text-sm" },
+  { value: "No preference", label: "No preference", style: "font-sans font-normal text-gray-400 text-xs" }
 ];
 
 export default function GenericGridQuestion({
@@ -91,14 +91,14 @@ export default function GenericGridQuestion({
         return (
           <div className="flex flex-col items-center justify-center space-y-2 py-3 w-full">
             <Ban className="w-5 h-5 text-gray-300" />
-            <span className={preset?.style || "text-xs font-bold"}>{opt.label}</span>
+            <span className={preset?.style || "text-xs font-normal"}>{opt.label}</span>
           </div>
         );
       }
       return (
         <div className="flex flex-col items-center justify-center space-y-1 py-3 w-full text-center">
-          <span className={preset?.style || "text-xs font-black"}>{opt.label}</span>
-          <span className="text-[9px] font-bold text-gray-400 capitalize">{opt.value}</span>
+          <span className={preset?.style || "text-xs font-normal"}>{opt.label}</span>
+          <span className="text-[9px] font-normal text-gray-400 capitalize">{opt.value}</span>
         </div>
       );
     }
@@ -112,7 +112,7 @@ export default function GenericGridQuestion({
             {emoji}
           </span>
         )}
-        <span className="text-xs font-extrabold text-gray-800 tracking-tight leading-tight pt-1">
+        <span className="text-xs font-normal text-gray-800 tracking-tight leading-tight pt-1">
           {opt.label}
         </span>
       </div>
@@ -143,7 +143,7 @@ export default function GenericGridQuestion({
           ) : (
             <div className="w-8" />
           )}
-          <span className="text-xs font-mono font-bold text-gray-400">
+          <span className="text-xs font-mono font-normal text-gray-400">
             {currentStep} of {totalSteps}
           </span>
         </div>
@@ -159,7 +159,7 @@ export default function GenericGridQuestion({
           />
         </div>
 
-        <h2 className="text-2xl font-black text-gray-900 tracking-tight">
+        <h2 className="text-2xl font-semibold text-gray-900 tracking-tight">
           {question.title}
         </h2>
         {question.subtitle && (
@@ -207,7 +207,7 @@ export default function GenericGridQuestion({
         <button
           onClick={handleNext}
           disabled={isNextDisabled}
-          className={`w-full py-4 font-extrabold rounded-2xl shadow-md transition text-center text-sm ${
+          className={`w-full py-4 font-normal rounded-2xl shadow-md transition text-center text-sm ${
             isNextDisabled 
               ? "bg-gray-100 text-gray-400 cursor-not-allowed" 
               : "bg-[#1F69FF] hover:bg-blue-700 text-white cursor-pointer"

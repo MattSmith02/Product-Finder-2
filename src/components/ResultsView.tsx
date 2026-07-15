@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { 
-  Star, Check, RefreshCw, ChevronRight, Home, Search, Compass, 
-  Tag, Heart, ShoppingCart, Info, Award, CheckCircle, Shield, Sparkles
-} from "lucide-react";
+import { Star, Check, RefreshCw, ChevronRight, Hop as Home, Search, Compass, Tag, Heart, ShoppingCart, Info, Award, CircleCheck as CheckCircle, Shield, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { TechAnswers, ProductRecommendation } from "../types";
 
@@ -100,7 +97,7 @@ export default function ResultsView({ answers, onRestart }: ResultsViewProps) {
           <Award className="w-8 h-8 text-blue-400" />
         </div>
 
-        <h2 className="text-xl font-extrabold tracking-tight font-display">
+        <h2 className="text-xl font-semibold tracking-tight font-display">
           Assembling Tech Recommendations
         </h2>
         
@@ -133,12 +130,12 @@ export default function ResultsView({ answers, onRestart }: ResultsViewProps) {
     <div className="flex-1 flex flex-col bg-[#0c1221] overflow-hidden h-full text-white relative">
       {/* Top sticky brand line designed to blend elegantly with the immersive full-screen celebration background */}
       <div className="bg-[#0c1221]/80 backdrop-blur-md px-5 py-3.5 border-b border-white/10 flex justify-between items-center shrink-0 z-10">
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#E7F0FF] to-[#01FE9E] font-black text-lg tracking-tighter uppercase font-sans">
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#E7F0FF] to-[#01FE9E] font-normal text-lg tracking-tighter uppercase font-sans">
           tom's guide
         </span>
         <button
           onClick={onRestart}
-          className="text-xs font-bold text-slate-300 hover:text-[#01FE9E] flex items-center gap-1.5 transition duration-200 cursor-pointer"
+          className="text-xs font-normal text-slate-300 hover:text-[#01FE9E] flex items-center gap-1.5 transition duration-200 cursor-pointer"
         >
           <RefreshCw className="w-3.5 h-3.5 stroke-[2]" /> Restart
         </button>
@@ -166,11 +163,11 @@ export default function ResultsView({ answers, onRestart }: ResultsViewProps) {
             </div>
           </div>
 
-          <h1 className="text-2xl font-black tracking-tight font-display text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-[#01FE9E]">
+          <h1 className="text-2xl font-semibold tracking-tight font-display text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-[#01FE9E]">
             Perfect Match Found!
           </h1>
           <p className="text-xs text-slate-300 mt-2 max-w-[290px] mx-auto leading-relaxed">
-            We've discovered <strong className="text-[#01FE9E] font-black">{totalFoundCount} devices</strong> matching your exact specifications. Here are our top 3 hand-picked options.
+            We've discovered <strong className="text-[#01FE9E] font-normal">{totalFoundCount} devices</strong> matching your exact specifications. Here are our top 3 hand-picked options.
           </p>
 
           {/* Dynamic matching criteria tag pills */}
@@ -178,7 +175,7 @@ export default function ResultsView({ answers, onRestart }: ResultsViewProps) {
             {selectedTags.map((tag) => (
               <span 
                 key={tag} 
-                className="bg-[#1F69FF] text-white text-[9px] font-black px-3 py-1.5 rounded-full uppercase tracking-wider shadow-sm border border-white/5"
+                className="bg-[#1F69FF] text-white text-[9px] font-normal px-3 py-1.5 rounded-full uppercase tracking-wider shadow-sm border border-white/5"
               >
                 {tag}
               </span>
@@ -203,7 +200,7 @@ export default function ResultsView({ answers, onRestart }: ResultsViewProps) {
                 className="bg-white rounded-2xl overflow-hidden flex flex-col justify-between p-3.5 cursor-pointer relative shadow-xl border border-white/5"
               >
                 {/* Badge top */}
-                <div className={`text-[8px] font-black tracking-wider uppercase text-center py-1 px-1.5 rounded-lg border mb-2 truncate shrink-0 overflow-hidden leading-none max-w-full block font-mono ${tagColorClass}`}>
+                <div className={`text-[8px] font-normal tracking-wider uppercase text-center py-1 px-1.5 rounded-lg border mb-2 truncate shrink-0 overflow-hidden leading-none max-w-full block font-mono ${tagColorClass}`}>
                   <span>{prod.tag}</span>
                 </div>
 
@@ -227,12 +224,12 @@ export default function ResultsView({ answers, onRestart }: ResultsViewProps) {
                 {/* Details Section */}
                 <div className="flex-1 flex flex-col justify-between text-gray-900">
                   <div>
-                    <h3 className="text-xs font-black text-gray-900 tracking-tight leading-snug line-clamp-2 h-8">
+                    <h3 className="text-xs font-semibold text-gray-900 tracking-tight leading-snug line-clamp-2 h-8">
                       {prod.name}
                     </h3>
 
                     {/* Ratings */}
-                    <div className="flex items-center gap-1 text-[10px] text-gray-500 mt-1 mb-2 font-bold">
+                    <div className="flex items-center gap-1 text-[10px] text-gray-500 mt-1 mb-2 font-normal">
                       <Star className="w-3 h-3 text-amber-500 fill-amber-500 shrink-0" />
                       <span className="text-gray-800">{prod.rating}</span>
                       <span className="text-gray-400">({prod.reviewsCount})</span>
@@ -241,10 +238,10 @@ export default function ResultsView({ answers, onRestart }: ResultsViewProps) {
 
                   {/* Pricing footer */}
                   <div className="border-t border-gray-100 pt-2 shrink-0">
-                    <div className="text-sm font-black text-[#1F69FF] font-mono leading-none">
+                    <div className="text-sm font-semibold text-[#1F69FF] font-mono leading-none">
                       {prod.price}
                     </div>
-                    <div className="text-[8px] text-emerald-600 font-extrabold flex items-center gap-0.5 mt-1">
+                    <div className="text-[8px] text-emerald-600 font-normal flex items-center gap-0.5 mt-1">
                       <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                       Lowest price today
                     </div>
@@ -263,7 +260,7 @@ export default function ResultsView({ answers, onRestart }: ResultsViewProps) {
             }}
             className="w-full bg-[#131d35] border border-white/5 p-4 rounded-2xl shadow-lg hover:bg-[#1b2746] transition flex items-center justify-between cursor-pointer text-white"
           >
-            <span className="text-xs font-black text-slate-100">
+            <span className="text-xs font-normal text-slate-100">
               View all {totalFoundCount} results
             </span>
             <ChevronRight className="w-4 h-4 text-[#01FE9E]" />
@@ -290,14 +287,14 @@ export default function ResultsView({ answers, onRestart }: ResultsViewProps) {
               ].map((alt, aIdx) => (
                 <div key={aIdx} className="bg-[#131d35] p-3.5 rounded-2xl border border-white/5 flex items-center justify-between">
                   <div>
-                    <h4 className="text-xs font-bold text-slate-100">{alt.name}</h4>
+                    <h4 className="text-xs font-semibold text-slate-100">{alt.name}</h4>
                     <div className="flex items-center gap-1 text-[10px] text-slate-400 mt-1">
                       <Star className="w-2.5 h-2.5 fill-amber-400 text-amber-400" />
                       <span className="text-slate-300">{alt.rating} editor score</span>
                     </div>
                   </div>
                   <div className="text-right">
-                    <span className="text-xs font-black text-[#01FE9E] font-mono">{alt.price}</span>
+                    <span className="text-xs font-semibold text-[#01FE9E] font-mono">{alt.price}</span>
                   </div>
                 </div>
               ))}
@@ -323,23 +320,23 @@ export default function ResultsView({ answers, onRestart }: ResultsViewProps) {
               {/* Close Button */}
               <button
                 onClick={() => setSelectedProduct(null)}
-                className="absolute top-4 right-5 text-slate-400 hover:text-white text-lg font-bold cursor-pointer"
+                className="absolute top-4 right-5 text-slate-400 hover:text-white text-lg font-normal cursor-pointer"
               >
                 ✕
               </button>
 
               {/* Header Info */}
               <div>
-                <span className="text-[10px] bg-[#1F69FF] text-white px-2.5 py-1 rounded-full font-bold uppercase tracking-wider font-mono border border-white/5">
+                <span className="text-[10px] bg-[#1F69FF] text-white px-2.5 py-1 rounded-full font-normal uppercase tracking-wider font-mono border border-white/5">
                   {selectedProduct.tag}
                 </span>
-                <h2 className="text-xl font-black text-white mt-2 tracking-tight leading-snug">
+                <h2 className="text-xl font-semibold text-white mt-2 tracking-tight leading-snug">
                   {selectedProduct.name}
                 </h2>
                 <div className="flex items-center gap-2 mt-1">
                   <div className="flex items-center text-amber-400 text-xs">
                     <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400 mr-0.5" />
-                    <span className="font-bold text-slate-200">{selectedProduct.rating}</span>
+                    <span className="font-semibold text-slate-200">{selectedProduct.rating}</span>
                   </div>
                   <span className="text-xs text-slate-400">({selectedProduct.reviewsCount} verified reviews)</span>
                 </div>
@@ -347,13 +344,13 @@ export default function ResultsView({ answers, onRestart }: ResultsViewProps) {
 
               {/* Specs Grid */}
               <div className="bg-white/5 border border-white/5 rounded-2xl p-4 space-y-2">
-                <span className="text-[9px] font-black text-[#01FE9E] tracking-wider uppercase block">
+                <span className="text-[9px] font-normal text-[#01FE9E] tracking-wider uppercase block">
                   Expert Tested Specifications
                 </span>
                 <div className="grid grid-cols-2 gap-2 pt-1">
                   {selectedProduct.specs.map((spec, sIdx) => (
-                    <div key={sIdx} className="text-xs text-slate-200 flex items-start gap-1.5 font-medium">
-                      <span className="text-emerald-400 font-bold">✓</span>
+                    <div key={sIdx} className="text-xs text-slate-200 flex items-start gap-1.5 font-normal">
+                      <span className="text-emerald-400 font-normal">✓</span>
                       <span>{spec}</span>
                     </div>
                   ))}
@@ -362,7 +359,7 @@ export default function ResultsView({ answers, onRestart }: ResultsViewProps) {
 
               {/* Description */}
               <div className="space-y-1.5">
-                <span className="text-[9px] font-black text-slate-400 tracking-wider uppercase block">
+                <span className="text-[9px] font-normal text-slate-400 tracking-wider uppercase block">
                   Editorial Snippet
                 </span>
                 <p className="text-xs text-slate-300 leading-relaxed font-sans">
@@ -373,7 +370,7 @@ export default function ResultsView({ answers, onRestart }: ResultsViewProps) {
               {/* Pros & Cons */}
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-emerald-500/5 border border-emerald-500/10 p-4 rounded-2xl space-y-2">
-                  <span className="text-[9px] font-black text-emerald-400 uppercase tracking-widest block font-mono">
+                  <span className="text-[9px] font-normal text-emerald-400 uppercase tracking-widest block font-mono">
                     Pros
                   </span>
                   {selectedProduct.pros.map((pro, pIdx) => (
@@ -384,7 +381,7 @@ export default function ResultsView({ answers, onRestart }: ResultsViewProps) {
                 </div>
 
                 <div className="bg-rose-500/5 border border-rose-500/10 p-4 rounded-2xl space-y-2">
-                  <span className="text-[9px] font-black text-rose-400 uppercase tracking-widest block font-mono">
+                  <span className="text-[9px] font-normal text-rose-400 uppercase tracking-widest block font-mono">
                     Cons
                   </span>
                   {selectedProduct.cons.map((con, cIdx) => (
@@ -401,7 +398,7 @@ export default function ResultsView({ answers, onRestart }: ResultsViewProps) {
                   href="https://www.tomsguide.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-4 bg-[#1F69FF] hover:bg-blue-600 text-white font-extrabold rounded-2xl text-center shadow-lg transition duration-200 flex items-center justify-center gap-2 text-sm"
+                  className="w-full py-4 bg-[#1F69FF] hover:bg-blue-600 text-white font-normal rounded-2xl text-center shadow-lg transition duration-200 flex items-center justify-center gap-2 text-sm"
                 >
                   <ShoppingCart className="w-4 h-4" />
                   <span>View active deal ({selectedProduct.price})</span>

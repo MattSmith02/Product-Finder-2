@@ -77,7 +77,7 @@ export default function BudgetQuestion({
           ) : (
             <div className="w-8" />
           )}
-          <span className="text-xs font-mono font-bold text-gray-400">
+          <span className="text-xs font-mono font-normal text-gray-400">
             {currentStep} of {totalSteps}
           </span>
         </div>
@@ -93,7 +93,7 @@ export default function BudgetQuestion({
           />
         </div>
 
-        <h2 className="text-2xl font-black text-gray-900 tracking-tight">
+        <h2 className="text-2xl font-semibold text-gray-900 tracking-tight">
           {question.title}
         </h2>
         {question.subtitle && (
@@ -107,7 +107,7 @@ export default function BudgetQuestion({
       <div className="my-auto py-6 space-y-8 flex-1 flex flex-col justify-center">
         {/* Large Centered Price Label */}
         <div className="text-center">
-          <span className="text-3xl font-black text-[#1F69FF] tracking-tight font-display">
+          <span className="text-3xl font-semibold text-[#1F69FF] tracking-tight font-display">
             {sliderVal <= 200 ? "£200" : sliderVal >= 2500 ? "£2,500+" : `£200 - £${sliderVal.toLocaleString()}`}
           </span>
         </div>
@@ -124,7 +124,7 @@ export default function BudgetQuestion({
             className="w-full h-1.5 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#1F69FF]"
             style={{ accentColor: "#1F69FF" }}
           />
-          <div className="flex justify-between text-[11px] font-mono font-bold text-gray-400">
+          <div className="flex justify-between text-[11px] font-mono font-normal text-gray-400">
             <span>£200</span>
             <span>£2,500+</span>
           </div>
@@ -132,7 +132,7 @@ export default function BudgetQuestion({
 
         {/* Range Label Divider */}
         <div className="space-y-4">
-          <span className="block text-xs font-bold text-gray-400">
+          <span className="block text-xs font-normal text-gray-400">
             or choose a range
           </span>
 
@@ -151,7 +151,7 @@ export default function BudgetQuestion({
                       : "border-gray-100 bg-white text-gray-600 hover:border-gray-200"
                   }`}
                 >
-                  <span className="text-xs font-extrabold tracking-tight">
+                  <span className="text-xs font-normal tracking-tight">
                     {preset.label}
                   </span>
                   {isSelected && (
@@ -170,7 +170,7 @@ export default function BudgetQuestion({
       <div className="pt-2 shrink-0">
         <button
           onClick={handleNext}
-          className="w-full py-4 bg-[#1F69FF] hover:bg-blue-700 text-white font-extrabold rounded-2xl shadow-md transition cursor-pointer text-center text-sm"
+          className="w-full py-4 bg-[#1F69FF] hover:bg-blue-700 text-white font-normal rounded-2xl shadow-md transition cursor-pointer text-center text-sm"
         >
           Next
         </button>

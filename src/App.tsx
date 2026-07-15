@@ -88,7 +88,7 @@ export default function App() {
     <div className="min-h-screen bg-[#f3f4f6] sm:bg-[#e5e7eb] flex items-center justify-center p-0 sm:p-4 font-sans antialiased select-none">
       <div 
         id="desktop-frame"
-        className="w-full max-w-[600px] h-screen sm:h-[840px] bg-white sm:rounded-[36px] sm:shadow-[0_24px_60px_-15px_rgba(0,0,0,0.15)] sm:border sm:border-gray-100 overflow-hidden flex flex-col relative transition-all duration-300"
+        className="w-full max-w-[462px] h-screen sm:h-[840px] bg-white sm:rounded-[36px] sm:shadow-[0_24px_60px_-15px_rgba(0,0,0,0.15)] sm:border sm:border-gray-100 overflow-hidden flex flex-col relative transition-all duration-300"
       >
         <AnimatePresence mode="wait">
           <motion.div

@@ -194,11 +194,11 @@ export default function CategoryPreviewScreen({ onBack }: CategoryPreviewScreenP
         <div className="flex items-center justify-between mb-3.5">
           <button
             onClick={onBack}
-            className="flex items-center gap-1.5 text-xs font-black text-slate-300 hover:text-[#01FE9E] transition duration-200 cursor-pointer"
+            className="flex items-center gap-1.5 text-xs font-normal text-slate-300 hover:text-[#01FE9E] transition duration-200 cursor-pointer"
           >
             <ArrowLeft className="w-4 h-4 stroke-[2.5]" /> Exit Preview
           </button>
-          <span className="text-[9px] uppercase font-black tracking-widest text-[#01FE9E] bg-[#01FE9E]/10 px-2.5 py-1 rounded-full">
+          <span className="text-[9px] uppercase font-normal tracking-widest text-[#01FE9E] bg-[#01FE9E]/10 px-2.5 py-1 rounded-full">
             Whole Journey Screen Auditor
           </span>
         </div>
@@ -213,7 +213,7 @@ export default function CategoryPreviewScreen({ onBack }: CategoryPreviewScreenP
                 onClick={() => {
                   setSelectedCat(cat.name);
                 }}
-                className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-extrabold transition-all duration-200 shrink-0 snap-center cursor-pointer border ${
+                className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-normal transition-all duration-200 shrink-0 snap-center cursor-pointer border ${
                   isSelected
                     ? "bg-[#1F69FF] text-white border-[#1F69FF] shadow-md shadow-[#1F69FF]/20"
                     : "bg-[#0c1221]/50 text-slate-300 border-white/5 hover:border-white/15"
@@ -238,7 +238,7 @@ export default function CategoryPreviewScreen({ onBack }: CategoryPreviewScreenP
                 className="flex flex-col items-center flex-1 min-w-[54px] cursor-pointer group"
               >
                 <div 
-                  className={`w-7 h-7 rounded-full flex items-center justify-center transition-all duration-200 text-xs font-extrabold ${
+                  className={`w-7 h-7 rounded-full flex items-center justify-center transition-all duration-200 text-xs font-normal ${
                     isCurrent 
                       ? "bg-[#01FE9E] text-[#0c1221] scale-110 ring-4 ring-[#01FE9E]/20"
                       : isCompleted
@@ -249,7 +249,7 @@ export default function CategoryPreviewScreen({ onBack }: CategoryPreviewScreenP
                   {stepObj.emoji}
                 </div>
                 <span 
-                  className={`text-[8px] font-bold mt-1.5 tracking-tighter truncate max-w-[55px] text-center ${
+                  className={`text-[8px] font-normal mt-1.5 tracking-tighter truncate max-w-[55px] text-center ${
                     isCurrent ? "text-[#01FE9E]" : "text-slate-400 group-hover:text-slate-300"
                   }`}
                 >
@@ -271,7 +271,7 @@ export default function CategoryPreviewScreen({ onBack }: CategoryPreviewScreenP
         <button
           onClick={handleStepBack}
           disabled={activeStep === 1}
-          className={`flex items-center gap-1 text-xs font-black px-3 py-2 rounded-xl transition ${
+          className={`flex items-center gap-1 text-xs font-normal px-3 py-2 rounded-xl transition ${
             activeStep === 1 
               ? "text-slate-600 cursor-not-allowed" 
               : "text-slate-300 hover:text-white cursor-pointer hover:bg-white/5"
@@ -279,13 +279,13 @@ export default function CategoryPreviewScreen({ onBack }: CategoryPreviewScreenP
         >
           <ChevronLeft className="w-4 h-4" /> Prev Screen
         </button>
-        <span className="text-[10px] font-mono font-bold text-slate-400">
+        <span className="text-[10px] font-mono font-normal text-slate-400">
           Screen <strong className="text-white">{activeStep}</strong> of 7
         </span>
         <button
           onClick={handleStepNext}
           disabled={activeStep === 7}
-          className={`flex items-center gap-1 text-xs font-black px-3 py-2 rounded-xl transition ${
+          className={`flex items-center gap-1 text-xs font-normal px-3 py-2 rounded-xl transition ${
             activeStep === 7 
               ? "text-slate-600 cursor-not-allowed" 
               : "text-[#01FE9E] hover:text-[#01FE9E]/90 cursor-pointer hover:bg-white/5"

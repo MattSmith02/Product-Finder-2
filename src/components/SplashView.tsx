@@ -1,5 +1,5 @@
 import React from "react";
-import { Award, Shield, CheckCircle, Smartphone, Laptop, Headphones, Sparkles } from "lucide-react";
+import { Award, Shield, CircleCheck as CheckCircle, Smartphone, Laptop, Headphones, Sparkles } from "lucide-react";
 import { motion } from "motion/react";
 
 interface SplashViewProps {
@@ -12,18 +12,18 @@ export default function SplashView({ onStart, onPreviewCats }: SplashViewProps) 
     <div className="flex-1 flex flex-col justify-between px-6 py-6 bg-white overflow-y-auto h-full">
       {/* Tom's Guide Header */}
       <div className="flex items-center gap-1 shrink-0 pt-1">
-        <span className="text-[#004ec4] font-black text-2xl tracking-tighter uppercase font-sans">
+        <span className="text-[#004ec4] font-normal text-2xl tracking-tighter uppercase font-sans">
           tom's guide
         </span>
       </div>
 
       {/* Hero Headings */}
       <div className="mt-4 shrink-0">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-blue-50 text-[#004ec4] rounded-full text-[10px] font-extrabold tracking-widest uppercase mb-3">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-blue-50 text-[#004ec4] rounded-full text-[10px] font-normal tracking-widest uppercase mb-3">
           <Sparkles className="w-3 h-3 stroke-[2.5]" />
           Product Finder
         </div>
-        <h1 className="text-3xl font-black text-gray-900 tracking-tight leading-[1.15]">
+        <h1 className="text-3xl font-semibold text-gray-900 tracking-tight leading-[1.15]">
           Find the right tech.
           <span className="block text-[#004ec4]">Personalised for you.</span>
         </h1>
@@ -83,21 +83,21 @@ export default function SplashView({ onStart, onPreviewCats }: SplashViewProps) 
       <div className="space-y-4 shrink-0">
         <button
           onClick={onStart}
-          className="w-full py-4 bg-[#004ec4] hover:bg-blue-700 text-white font-extrabold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer text-center text-sm tracking-wide"
+          className="w-full py-4 bg-[#004ec4] hover:bg-blue-700 text-white font-normal rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer text-center text-sm tracking-wide"
         >
           Let's get started
         </button>
 
         <button
           onClick={onPreviewCats}
-          className="w-full py-4 bg-[#E7F0FF] hover:bg-[#d8e7ff] text-[#1F69FF] font-extrabold rounded-2xl shadow-md transition-all duration-200 cursor-pointer text-center text-sm tracking-wide border border-blue-200 flex items-center justify-center gap-2"
+          className="w-full py-4 bg-[#E7F0FF] hover:bg-[#d8e7ff] text-[#1F69FF] font-normal rounded-2xl shadow-md transition-all duration-200 cursor-pointer text-center text-sm tracking-wide border border-blue-200 flex items-center justify-center gap-2"
         >
           <span>🧪 Preview Category Results</span>
         </button>
 
         <button
           onClick={onStart}
-          className="w-full text-center text-xs text-gray-400 font-bold hover:text-gray-600 transition"
+          className="w-full text-center text-xs text-gray-400 font-normal hover:text-gray-600 transition"
         >
           I know what I want
         </button>
@@ -109,21 +109,21 @@ export default function SplashView({ onStart, onPreviewCats }: SplashViewProps) 
           <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center mb-1.5">
             <Award className="w-4 h-4 text-[#004ec4]" />
           </div>
-          <span className="text-[10px] font-black text-gray-800 leading-tight">Expert tested</span>
+          <span className="text-[10px] font-normal text-gray-800 leading-tight">Expert tested</span>
         </div>
         
         <div className="flex flex-col items-center">
           <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center mb-1.5">
             <CheckCircle className="w-4 h-4 text-[#004ec4]" />
           </div>
-          <span className="text-[10px] font-black text-gray-800 leading-tight">Personal picks</span>
+          <span className="text-[10px] font-normal text-gray-800 leading-tight">Personal picks</span>
         </div>
 
         <div className="flex flex-col items-center">
           <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center mb-1.5">
             <Shield className="w-4 h-4 text-[#004ec4]" />
           </div>
-          <span className="text-[10px] font-black text-gray-800 leading-tight">True confidence</span>
+          <span className="text-[10px] font-normal text-gray-800 leading-tight">True confidence</span>
         </div>
       </div>
     </div>

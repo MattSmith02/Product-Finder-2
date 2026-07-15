@@ -8,10 +8,12 @@
 
 body {
   font-family: var(--font-sans);
+  font-weight: 400;
 }
 
-h1, h2, h3, .font-display {
+h1, h2, h3, h4, h5, h6, .font-display {
   font-family: var(--font-display);
+  font-weight: 600;
 }
 
 /* Custom Scrollbar styling for a premium modern feel */
