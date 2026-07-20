@@ -136,6 +136,7 @@ export default function CategoryPreviewScreen({ onBack }: CategoryPreviewScreenP
         <div key={`results-${selectedCat}-${JSON.stringify(previewAnswers)}`} className="h-full">
           <ResultsView 
             answers={previewAnswers} 
+            personality={null}
             onRestart={() => setActiveStep(1)} 
           />
         </div>

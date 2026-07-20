@@ -32,3 +32,11 @@ export interface TechProfile {
   tags: string[];
   summary: string;
 }
+
+export interface PersonalityProfile {
+  type: string;
+  emoji: string;
+  tagline: string;
+  description: string;
+  traits: string[];
+}

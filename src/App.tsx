@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { SURVEY_QUESTIONS } from "./questions";
-import { TechAnswers } from "./types";
+import { TechAnswers, PersonalityProfile } from "./types";
+import { supabase } from "./lib/supabase";
+import { derivePersonality } from "./lib/personality";
 
 // Import Views
 import SplashView from "./components/SplashView";
@@ -9,6 +11,7 @@ import BudgetQuestion from "./components/BudgetQuestion";
 import GenericGridQuestion from "./components/GenericGridQuestion";
 import ResultsView from "./components/ResultsView";
 import CategoryPreviewScreen from "./components/CategoryPreviewScreen";
+import EmailSignup from "./components/EmailSignup";
 
 const INITIAL_ANSWERS: TechAnswers = {
   shoppingFor: "",
@@ -20,9 +23,10 @@ const INITIAL_ANSWERS: TechAnswers = {
 };
 
 export default function App() {
-  const [view, setView] = useState<"splash" | "survey" | "results" | "preview-categories">("splash");
+  const [view, setView] = useState<"splash" | "survey" | "signup" | "results" | "preview-categories">("splash");
   const [currentStep, setCurrentStep] = useState<number>(1);
   const [answers, setAnswers] = useState<TechAnswers>(INITIAL_ANSWERS);
+  const [personality, setPersonality] = useState<PersonalityProfile | null>(null);
 
   const totalSteps = SURVEY_QUESTIONS.length;
 
@@ -35,7 +39,7 @@ export default function App() {
     if (currentStep < totalSteps) {
       setCurrentStep((prev) => prev + 1);
     } else {
-      setView("results");
+      setView("signup");
     }
   };
 
@@ -47,9 +51,30 @@ export default function App() {
     }
   };
 
+  const handleSignupSubmit = async (email: string, password: string) => {
+    const profile = derivePersonality(answers);
+
+    const { data, error } = await supabase.auth.signUp({ email, password });
+    if (error) throw error;
+
+    // Persist survey response if we have a session
+    const userId = data?.user?.id;
+    if (userId) {
+      await supabase.from("survey_responses").insert({
+        email,
+        answers,
+        personality_type: profile.type,
+      });
+    }
+
+    setPersonality(profile);
+    setView("results");
+  };
+
   const handleRestart = () => {
     setAnswers(INITIAL_ANSWERS);
     setCurrentStep(1);
+    setPersonality(null);
     setView("splash");
   };
 
@@ -106,7 +131,22 @@ export default function App() {
               />
             )}
             {view === "survey" && renderSurveyQuestion()}
-            {view === "results" && <ResultsView answers={answers} onRestart={handleRestart} />}
+            {view === "signup" && (
+              <EmailSignup
+                onSubmit={handleSignupSubmit}
+                onBack={() => {
+                  setCurrentStep(totalSteps);
+                  setView("survey");
+                }}
+              />
+            )}
+            {view === "results" && (
+              <ResultsView
+                answers={answers}
+                personality={personality}
+                onRestart={handleRestart}
+              />
+            )}
             {view === "preview-categories" && <CategoryPreviewScreen onBack={handleRestart} />}
           </motion.div>
         </AnimatePresence>

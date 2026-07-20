@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Star, Check, RefreshCw, ChevronRight, Hop as Home, Search, Compass, Tag, Heart, ShoppingCart, Info, Award, CircleCheck as CheckCircle, Shield, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
-import { TechAnswers, ProductRecommendation } from "../types";
+import { TechAnswers, ProductRecommendation, PersonalityProfile } from "../types";
 
 interface ResultsViewProps {
   answers: TechAnswers;
+  personality: PersonalityProfile | null;
   onRestart: () => void;
 }
 
@@ -16,7 +17,7 @@ const LOADING_PHASES = [
   "Assembling your custom top 3 product matches..."
 ];
 
-export default function ResultsView({ answers, onRestart }: ResultsViewProps) {
+export default function ResultsView({ answers, personality, onRestart }: ResultsViewProps) {
   const [loading, setLoading] = useState<boolean>(true);
   const [phaseIndex, setPhaseIndex] = useState<number>(0);
   const [products, setProducts] = useState<ProductRecommendation[]>([]);
@@ -181,6 +182,41 @@ export default function ResultsView({ answers, onRestart }: ResultsViewProps) {
               </span>
             ))}
           </div>
+
+          {/* Shopping Personality Profile */}
+          {personality && (
+            <motion.div
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.15, duration: 0.35 }}
+              className="mt-5 bg-gradient-to-br from-[#1F69FF]/10 to-[#01FE9E]/5 border border-[#01FE9E]/20 rounded-2xl p-4 text-left"
+            >
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-2xl">{personality.emoji}</span>
+                <div>
+                  <span className="text-[9px] font-normal text-[#01FE9E] tracking-wider uppercase block">
+                    Your shopping personality
+                  </span>
+                  <h3 className="text-sm font-semibold text-white tracking-tight leading-tight">
+                    {personality.type}
+                  </h3>
+                </div>
+              </div>
+              <p className="text-[11px] text-slate-300 leading-relaxed mb-2">
+                {personality.description}
+              </p>
+              <div className="flex flex-wrap gap-1.5">
+                {personality.traits.map((trait) => (
+                  <span
+                    key={trait}
+                    className="text-[9px] font-normal text-slate-200 bg-white/5 border border-white/10 px-2 py-0.5 rounded-full"
+                  >
+                    {trait}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          )}
         </div>
 
         {/* Product Cards with high contrast details, looking incredibly distinct */}
